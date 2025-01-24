@@ -20,3 +20,69 @@ HTTP/1.1 200 OK
   Content-Type: application/json    --> type of content that server has sent
   Content-Encoding: gzip   --> if data sent by server is compressed
 }
+
+
+GET Request Example
+Request
+GET /api/v1/resource/{resource_id} HTTP/1.1
+Host: api.example.com
+Accept-Encoding: gzip
+Authorization: Bearer/apiKey token/{api_key}
+
+Response
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Encoding: gzip
+
+{
+    "id": "{resource_id}",
+    "name": "{resource_name}",
+    "email": "{resource_email}"
+}
+
+
+PUT Request Example
+Request
+PUT /api/v1/resource/{resource_id} HTTP/1.1
+Host: api.example.com
+Content-Type: application/json
+Accept-Encoding: gzip
+Authorization: Bearer/apiKey token/{api_key}
+
+{
+    "name": "{updated_name}",
+    "email": "{updated_email}",
+    "password": "{updated_password}"
+}
+
+Response
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Encoding: gzip
+{
+    "id": "{resource_id}",
+    "name": "{updated_name}",
+    "email": "{updated_email}"
+}
+
+PATCH Request Example
+Request
+PATCH /api/v1/resource/{resource_id} HTTP/1.1
+Host: api.example.com
+Content-Type: application/json
+Accept-Encoding: gzip
+Authorization: Bearer/apiKey token/{api_key}
+{
+    "email": "{new_email}"
+}
+
+Response
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Encoding: gzip
+
+{
+    "id": "{resource_id}",
+    "name": "{resource_name}",
+    "email": "{new_email}"
+}
